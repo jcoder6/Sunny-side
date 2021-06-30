@@ -1,0 +1,159 @@
+.about {
+  @include breakpoints-down(medium) {
+    margin-top: -12.5rem;
+  }
+  &__article {
+    display: flex;
+    height: 37.5rem;
+
+    @include breakpoints-down(medium) {
+      flex-direction: column;
+      height: 100%;
+    }
+    .desc {
+      width: 50%;
+      padding: 10rem;
+      padding-right: 7rem;
+      padding-top: 12rem;
+      position: static;
+      @include breakpoints-down(medium) {
+        width: 100%;
+        order: 2;
+        text-align: center;
+      }
+      @include breakpoints-down(small) {
+        padding: 3rem 1.5rem;
+        margin-bottom: 3rem;
+      }
+
+      .learn {
+        position: relative;
+        align-self: flex-start;
+
+        &:hover {
+          .underline {
+            opacity: 1;
+          }
+        }
+
+        p {
+          position: absolute;
+        }
+        .underline {
+          position: absolute;
+          background-color: $yellow;
+          border-radius: 100px;
+          height: 7px;
+          width: 8rem;
+          bottom: 3px;
+          left: -4px;
+          z-index: -1;
+          opacity: 0.5;
+          transition: 200ms ease-in-out;
+          @include breakpoints-down(medium) {
+            left: 50%;
+            transform: translate(-50%, -50%);
+          }
+        }
+
+        .learn-more {
+          font-size: 1rem;
+          color: $veryDarkDesaturatedBlue;
+          font-family: "Fraunces", serif;
+          text-transform: uppercase;
+          font-weight: 1000;
+        }
+
+        .more2 {
+          background-color: $softRed;
+        }
+      }
+    }
+    .img-container {
+      width: 50%;
+      @include breakpoints-down(medium) {
+        width: 100%;
+        order: 1;
+      }
+      .egg-img {
+        width: 100%;
+        min-height: 100%;
+        @include breakpoints-down(medium) {
+          max-height: 30rem;
+        }
+      }
+    }
+  }
+
+  &__what {
+    display: flex;
+    // border: 1px solid blue;
+    height: 37.5rem;
+    text-align: center;
+    overflow: visible;
+    @include breakpoints-down(medium) {
+      flex-direction: column;
+      height: auto;
+    }
+
+    .graphic-design {
+      width: 100%;
+      background-repeat: no-repeat;
+      position: relative;
+    }
+
+    .photography {
+      width: 100%;
+      background-repeat: no-repeat;
+      position: relative;
+    }
+
+    .what-bg-img {
+      position: relative;
+      display: flex;
+      justify-content: center;
+
+      img {
+        width: 100%;
+      }
+
+      .desktop {
+        min-height: 37.5rem;
+        @include breakpoints-down(medium) {
+          display: none;
+        }
+      }
+
+      .mobile {
+        max-height: 35rem;
+        @include breakpoints-up(large) {
+          display: none;
+        }
+      }
+      .what {
+        position: absolute;
+        width: 55%;
+        top: 62%;
+
+        @include breakpoints-down(medium) {
+          width: 90%;
+          top: 60%;
+        }
+
+        p {
+          color: $veryDarkDesaturatedBlue;
+          @include breakpoints-down(small) {
+            font-size: 15px;
+          }
+        }
+
+        h3 {
+          margin-bottom: 2rem;
+          @include breakpoints-down(medium) {
+            font-size: 1.7rem;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,232 @@
+.bg-img-container {
+  position: relative;
+  width: 100%;
+  height: 50rem;
+
+  .bg-img-header {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    @include breakpoints-down(medium) {
+      display: none;
+    }
+  }
+  .bg-img-header-mob {
+    width: 100%;
+    height: 75%;
+    @include breakpoints-up(large) {
+      display: none;
+    }
+  }
+}
+
+.header {
+  position: relative;
+  &__nav {
+    width: 100%;
+    // background-color: pink;
+    position: absolute;
+    top: 0;
+    padding: 3rem 2rem;
+    display: flex;
+    justify-content: space-between;
+
+    .logo {
+      width: 9rem;
+      height: 2rem;
+    }
+
+    .tabs {
+      margin-top: -0.5rem;
+      // border: 1px solid pink;
+      width: 35%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      @include breakpoints-down(medium) {
+        display: none;
+      }
+    }
+
+    .hamburger {
+      width: 2rem;
+      height: 2rem;
+      cursor: pointer;
+    }
+  }
+
+  &__title {
+    // border: 1px solid pink;
+    position: absolute;
+    top: 15rem;
+    left: 50%;
+    text-align: center;
+    transform: translate(-50%, -50%);
+    letter-spacing: 8px;
+    word-spacing: 11px;
+    @include breakpoints-up(large) {
+      width: 80%;
+    }
+    h1 {
+      color: white;
+    }
+  }
+
+  &__arrow {
+    // border: 2px solid pink;
+    position: absolute;
+    top: 52%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    .arrow {
+      @include breakpoints-down(medium) {
+        margin-top: -3rem;
+      }
+    }
+  }
+
+  &__modal {
+    background-color: $white;
+    position: absolute;
+    top: 19rem;
+    width: 86%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 2.5rem;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    animation: fadeOut 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+    @include breakpoints-up(large) {
+      display: none;
+    }
+    // display: none;
+    a {
+      margin-bottom: 2rem;
+      color: black;
+      font-size: 16px;
+      opacity: 0;
+      animation: modalContentFadeOut 0.5s cubic-bezier(0.165, 0.84, 0.44, 1)
+        forwards;
+    }
+
+    .button2 {
+      opacity: 0;
+      animation: modalContentFadeOut 0.5s cubic-bezier(0.165, 0.84, 0.44, 1)
+        forwards;
+    }
+
+    .triangle {
+      background-color: $white;
+      width: 2rem;
+      height: 2rem;
+      clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+      position: absolute;
+      top: -1.9rem;
+      right: 0;
+      animation: fadeOut 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+    }
+  }
+
+  .show-modal {
+    background: white;
+    animation: fadeIn 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+    a,
+    .button2 {
+      animation: modalContentFadeIn 300ms 300ms
+        cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+    }
+    .triangle {
+      background: white;
+      animation: fadeIn 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+    }
+  }
+}
+
+// .six {
+//   transform:scale(1);
+//   .modal-background {
+//     background:rgba(0,0,0,.0);
+//     animation: fadeIn .5s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+//     .modal {
+//       background-color:transparent;
+//       animation: modalFadeIn .5s .8s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+//       h2,p {
+//         opacity:0;
+//         animation: modalContentFadeIn .5s 1s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+//       }
+//     }
+//   }
+//   &.out {
+//     animation: quickScaleDown 0s .5s linear forwards;
+//     .modal-background {
+//       animation: fadeOut .5s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+//       .modal {
+//         animation: modalFadeOut .5s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+//         h2,p {
+//           animation: modalContentFadeOut .5s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+//         }
+//       }
+//     }
+//   }
+// }
+
+@keyframes fadeIn {
+  0% {
+    background: rgba(255, 240, 240, 0.89);
+  }
+  100% {
+    background: white;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    background: rgba(223, 223, 223, 0.7);
+  }
+  100% {
+    background: rgba(0, 0, 0, 0);
+  }
+}
+
+// @keyframes modalFadeIn {
+//   0% {
+//     background-color:transparent;
+//   }
+//   100% {
+//     background-color:white;
+//   }
+// }
+
+// @keyframes modalFadeOut {
+//   0% {
+//     background-color:white;
+//   }
+//   100% {
+//     background-color:transparent;
+//   }
+// }
+
+@keyframes modalContentFadeIn {
+  0% {
+    opacity: 0;
+    top: -20px;
+  }
+  100% {
+    opacity: 1;
+    top: 0;
+  }
+}
+
+@keyframes modalContentFadeOut {
+  0% {
+    opacity: 1;
+    top: 0px;
+  }
+  100% {
+    opacity: 0;
+    top: -20px;
+  }
+}

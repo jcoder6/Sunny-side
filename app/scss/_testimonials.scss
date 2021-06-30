@@ -1,0 +1,59 @@
+.testimonials {
+  // border: 1px solid blue;
+  padding: 9rem;
+  padding-bottom: 5rem;
+  text-align: center;
+  @include breakpoints-down(medium) {
+    padding: 3.5rem 2rem 0 2rem;
+  }
+  &__title {
+    font-size: 1.3rem;
+    letter-spacing: 5px;
+    word-spacing: 4px;
+    text-transform: uppercase;
+    color: $grayishBlue;
+    margin-bottom: 3rem;
+    @include breakpoints-down(small) {
+      font-size: 1rem;
+      letter-spacing: 4px;
+    }
+  }
+  &__clients {
+    display: flex;
+    // border: 1px solid pink;
+    justify-content: space-between;
+    text-align: center;
+    padding: 2rem;
+
+    @include breakpoints-down(medium) {
+      flex-direction: column;
+      padding: 0;
+    }
+
+    .client {
+      width: 30%;
+      @include breakpoints-down(medium) {
+        width: 70%;
+        margin: auto;
+      }
+      @include breakpoints-down(small) {
+        width: 100%;
+      }
+      .client-img {
+        border-radius: 50%;
+        height: 5rem;
+        width: 5rem;
+        margin-bottom: 2.8rem;
+      }
+
+      p {
+        margin-bottom: 3rem;
+        color: $veryDarkGrayishBlue;
+      }
+
+      .client-job {
+        font-size: 14px;
+      }
+    }
+  }
+}
